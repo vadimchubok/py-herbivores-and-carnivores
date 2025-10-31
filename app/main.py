@@ -1,5 +1,5 @@
 class Animal:
-    alive = []
+    alive: list = []
 
     def __init__(self, name: str,
                  health: int = 100,
@@ -16,24 +16,11 @@ class Animal:
                 f"Hidden: {self.hidden}}}"
                 )
 
-    def __str__(self) -> str:
-        return str(
-            [
-                {"Name": animal.name,
-                 "Health": animal.health,
-                 "Hidden": animal.hidden}
-                for animal in Animal.alive
-            ]
-        )
-
 
 class Herbivore(Animal):
 
     def hide(self) -> None:
-        if self.hidden:
-            self.hidden = False
-        else:
-            self.hidden = True
+        self.hidden = not self.hidden
 
 
 class Carnivore(Animal):
