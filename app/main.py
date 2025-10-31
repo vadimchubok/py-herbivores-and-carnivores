@@ -41,7 +41,6 @@ class Carnivore(Animal):
     def bite(self, other: Animal) -> None:
         if not isinstance(other, Herbivore):
             return
-
         if other.hidden:
             return
 
